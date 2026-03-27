@@ -280,6 +280,8 @@
         svg {
             display: block;
             margin: 0 auto;
+            max-width: 100%;
+            height: auto;
         }
         .bar { fill: #4A6741; }
         .bar:hover { fill: #FFB100; }
@@ -289,6 +291,142 @@
 
         /* Action text */
         .action-text { color: #D32F2F; }
+
+        /* Table wrapper for horizontal scroll on mobile */
+        .table-wrapper {
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        /* ========================================
+           Mobile Responsive Styles
+           ======================================== */
+        @media screen and (max-width: 768px) {
+            body {
+                padding: 20px 16px;
+            }
+
+            /* Header - stack vertically */
+            .header {
+                flex-direction: column;
+                padding: 24px 20px;
+                margin: -20px -16px 0 -16px;
+                text-align: center;
+            }
+            .header::before {
+                width: 100%;
+                height: 4px;
+            }
+            .header h1 {
+                font-size: 22px;
+                margin-bottom: 8px;
+            }
+            .header .subtitle {
+                font-size: 14px;
+            }
+            .header .confidential {
+                font-size: 10px;
+                margin-top: 12px;
+            }
+            .header-image {
+                margin: 20px 0 0 0;
+            }
+            .header-image img {
+                width: 280px;
+                transform: none;
+            }
+
+            /* KPI Strip - 2 column grid */
+            .kpi-strip {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 16px;
+                padding: 20px 16px;
+                margin: 0 -16px 32px -16px;
+            }
+            .kpi-item:last-child {
+                grid-column: span 2;
+            }
+            .kpi-value {
+                font-size: 28px;
+            }
+            .kpi-label {
+                font-size: 10px;
+            }
+
+            /* Sections */
+            h2 {
+                font-size: 18px;
+                margin-top: 36px;
+            }
+            h3 {
+                font-size: 16px;
+            }
+
+            /* Exhibit */
+            .exhibit {
+                padding: 16px;
+                margin: 20px -8px;
+            }
+            .exhibit-title {
+                font-size: 14px;
+            }
+
+            /* Takeaway */
+            .takeaway {
+                padding: 16px 18px;
+                margin: 20px 0;
+            }
+            .takeaway-content {
+                font-size: 14px;
+            }
+            .takeaway-content p {
+                margin: 8px 0;
+            }
+
+            /* Tables */
+            table {
+                font-size: 12px;
+                min-width: 500px;
+            }
+            th, td {
+                padding: 10px 12px;
+            }
+
+            /* Blockquotes */
+            blockquote {
+                padding: 14px 16px;
+                font-size: 13px;
+            }
+
+            /* Charts */
+            .chart-container {
+                padding: 12px;
+                overflow-x: auto;
+            }
+
+            /* Footer */
+            .footer {
+                margin-top: 40px;
+                font-size: 11px;
+            }
+        }
+
+        /* Extra small screens (iPhone SE, etc) */
+        @media screen and (max-width: 375px) {
+            .header h1 {
+                font-size: 18px;
+            }
+            .header-image img {
+                width: 220px;
+            }
+            .kpi-value {
+                font-size: 24px;
+            }
+            h2 {
+                font-size: 16px;
+            }
+        }
 
         /* ========================================
            Print Styles - 4:3 Ratio Slides
@@ -536,6 +674,7 @@
     <div class="exhibit-header">Exhibit 2</div>
     <div class="exhibit-title">e-Latch 电子门锁是最紧迫的公关风险，需立即应对</div>
 
+    <div class="table-wrapper">
     <table>
         <thead>
             <tr>
@@ -584,6 +723,7 @@
             </tr>
         </tbody>
     </table>
+    </div>
 </div>
 
 <h3>P0 风险详解：e-Latch 电子门锁</h3>
@@ -634,6 +774,7 @@
     <div class="exhibit-header">Exhibit 3</div>
     <div class="exhibit-title">Tesla 是最频繁提及的竞品，430 次提及中 52 条明确表达转化意向</div>
 
+    <div class="table-wrapper">
     <table>
         <thead>
             <tr>
@@ -676,6 +817,7 @@
             </tr>
         </tbody>
     </table>
+    </div>
 </div>
 
 <h3>Tesla 车主转化驱动因素</h3>
@@ -759,6 +901,7 @@
     <div class="exhibit-header">Exhibit 5</div>
     <div class="exhibit-title">Reddit 不提供用户地理位置，但评论中的州提及揭示了区域性需求差异</div>
 
+    <div class="table-wrapper">
     <table>
         <thead>
             <tr>
@@ -790,6 +933,7 @@
             </tr>
         </tbody>
     </table>
+    </div>
 </div>
 
 <div class="takeaway">
@@ -809,6 +953,7 @@
     <div class="exhibit-header">Exhibit 6</div>
     <div class="exhibit-title">按优先级排序的行动建议，聚焦转化率提升</div>
 
+    <div class="table-wrapper">
     <table>
         <thead>
             <tr>
@@ -864,11 +1009,13 @@
             </tr>
         </tbody>
     </table>
+    </div>
 </div>
 
 <!-- Appendix -->
 <h2>附录：数据方法论</h2>
 
+<div class="table-wrapper">
 <table>
     <thead>
         <tr>
@@ -915,6 +1062,7 @@
         </tr>
     </tbody>
 </table>
+</div>
 
 <p style="font-size: 13px; color: #666; margin-top: 24px;">
     <strong>局限性</strong>：数据仅来自 Reddit 单一平台，以「发烧友」为主，可能不代表大众市场。建议结合 YouTube、Instagram、预定数据进行交叉验证。
